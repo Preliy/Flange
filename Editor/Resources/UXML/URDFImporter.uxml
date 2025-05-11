@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement style="flex-grow: 0; flex-direction: row;">
+        <ui:TextField picking-mode="Ignore" label="Path .urdf" name="urdfPath" style="flex-shrink: 1; flex-grow: 1;" />
+        <ui:Button text="Select" parse-escape-sequences="true" display-tooltip-when-elided="true" name="selectUrdf" />
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 0; flex-direction: row;">
+        <ui:TextField picking-mode="Ignore" label="Path resources" name="resourcesPath" style="flex-shrink: 1; flex-grow: 1;" />
+        <ui:Button text="Select" parse-escape-sequences="true" display-tooltip-when-elided="true" name="selectUrdf" />
+    </ui:VisualElement>
+    <ui:Button text="Import" parse-escape-sequences="true" display-tooltip-when-elided="true" name="import" />
+</ui:UXML>
