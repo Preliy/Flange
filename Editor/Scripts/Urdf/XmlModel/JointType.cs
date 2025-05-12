@@ -2,6 +2,8 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
+using System.Xml.Serialization;
+
 namespace Preliy.Flange.Editor.XmlModel
 {
     /// <remarks/>
@@ -9,17 +11,17 @@ namespace Preliy.Flange.Editor.XmlModel
     [System.SerializableAttribute()]
     public enum JointType 
     {
-        /// <remarks/>
+        [XmlEnum(Name = "revolute")]
         Revolute,
-        /// <remarks/>
+        [XmlEnum(Name = "continuous")]
         Continuous,
-        /// <remarks/>
+        [XmlEnum(Name = "prismatic")]
         Prismatic,
-        /// <remarks/>
+        [XmlEnum(Name = "fixed")]
         Fixed,
-        /// <remarks/>
+        [XmlEnum(Name = "floating")]
         Floating,
-        /// <remarks/>
+        [XmlEnum(Name = "planar")]
         Planar,
     }
 }

@@ -8,19 +8,19 @@ using System.Xml.Serialization;
 
 namespace Preliy.Flange.Editor.Tests.Urdf.XmlModel
 {
-    public class TestMesh
+    public class TestAxis
     {
-        private const string TEST_XML = "<mesh filename=\"package://collision/base_link.stl\"/>";
-
+        private const string TEST_XML = "<axis xyz=\"0 1 0\"/>";
+        
         [Test]
         public void Deserialize_Success()
         {
-            var serializer = new XmlSerializer(typeof(Preliy.Flange.Editor.XmlModel.Mesh));
+            var serializer = new XmlSerializer(typeof(Preliy.Flange.Editor.XmlModel.Axis));
             using var reader = new StringReader(TEST_XML);
-            var mesh = (Preliy.Flange.Editor.XmlModel.Mesh)serializer.Deserialize(reader);
+            var axis = (Preliy.Flange.Editor.XmlModel.Axis)serializer.Deserialize(reader);
             
-            Assert.IsNotNull(mesh);
-            Assert.AreEqual("package://collision/base_link.stl", mesh.FileName);
+            Assert.IsNotNull(axis);
+            Assert.AreEqual("0 1 0", axis.XYZ);
         }
     }
 }

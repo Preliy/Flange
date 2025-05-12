@@ -1,0 +1,27 @@
+﻿// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+using NUnit.Framework;
+using System.IO;
+using System.Xml.Serialization;
+
+namespace Preliy.Flange.Editor.Tests.Urdf.XmlModel
+{
+    public class TestMaterial
+    {
+        private const string TEST_XML = "<material name=\"yellow\">\n        <color rgba=\"1 1 0 1\"/>\n      </material>";
+        
+        [Test]
+        public void Deserialize_Success()
+        {
+            var serializer = new XmlSerializer(typeof(Preliy.Flange.Editor.XmlModel.Material));
+            using var reader = new StringReader(TEST_XML);
+            var material = (Preliy.Flange.Editor.XmlModel.Material)serializer.Deserialize(reader);
+            
+            Assert.IsNotNull(material);
+            Assert.AreEqual("yellow", material.Name);
+            Assert.IsNotNull(material.Color);
+        }
+    }
+}

@@ -5,23 +5,62 @@
 using NUnit.Framework;
 using System.IO;
 using System.Xml.Serialization;
+using Preliy.Flange.Editor.XmlModel;
 
 namespace Preliy.Flange.Editor.Tests.Urdf.XmlModel
 {
     public class TestGeometry
     {
-        private const string TEST_XML = "<geometry>\n        <mesh filename=\"package://collision/base_link.stl\"/>\n      </geometry>";
-        
         [Test]
-        public void Deserialize_XmlToMeshObject_Success()
+        public void DeserializeMesh_Success()
         {
-            var serializer = new XmlSerializer(typeof(Preliy.Flange.Editor.XmlModel.Geometry));
-            using var reader = new StringReader(TEST_XML);
-            var geometry = (Preliy.Flange.Editor.XmlModel.Geometry)serializer.Deserialize(reader);
+            var testXML = "<geometry>\n        <mesh filename=\"package://collision/base_link.stl\"/>\n      </geometry>";
+            var serializer = new XmlSerializer(typeof(Geometry));
+            using var reader = new StringReader(testXML);
+            var geometry = (Geometry)serializer.Deserialize(reader);
             
             Assert.IsNotNull(geometry);
-            Assert.IsNotNull(geometry.Mesh);
-            Assert.AreEqual(geometry.Mesh.FileName, "package://collision/base_link.stl");
+            Assert.IsNotNull(geometry.Object);
+            Assert.IsInstanceOf(typeof(Mesh), geometry.Object);
+        }
+        
+        [Test]
+        public void DeserializeCylinder_Success()
+        {
+            var testXML = "<geometry>\n        <cylinder radius=\"1\" length=\"0.5\"/>\n      </geometry>";
+            var serializer = new XmlSerializer(typeof(Geometry));
+            using var reader = new StringReader(testXML);
+            var geometry = (Geometry)serializer.Deserialize(reader);
+            
+            Assert.IsNotNull(geometry);
+            Assert.IsNotNull(geometry.Object);
+            Assert.IsInstanceOf(typeof(Cylinder), geometry.Object);
+        }
+        
+        [Test]
+        public void DeserializeBox_Success()
+        {
+            var testXML = "<geometry>\n        <box size=\"1 1 1\" />\n      </geometry>";
+            var serializer = new XmlSerializer(typeof(Geometry));
+            using var reader = new StringReader(testXML);
+            var geometry = (Geometry)serializer.Deserialize(reader);
+            
+            Assert.IsNotNull(geometry);
+            Assert.IsNotNull(geometry.Object);
+            Assert.IsInstanceOf(typeof(Box), geometry.Object);
+        }
+        
+        [Test]
+        public void DeserializeSphere_Success()
+        {
+            var testXML = "<geometry>\n        <sphere radius=\"1\" />\n      </geometry>";
+            var serializer = new XmlSerializer(typeof(Geometry));
+            using var reader = new StringReader(testXML);
+            var geometry = (Geometry)serializer.Deserialize(reader);
+            
+            Assert.IsNotNull(geometry);
+            Assert.IsNotNull(geometry.Object);
+            Assert.IsInstanceOf(typeof(Sphere), geometry.Object);
         }
     }
 }
