@@ -8,19 +8,20 @@ using System.Xml.Serialization;
 
 namespace Preliy.Flange.Editor.Tests.Urdf.XmlModel
 {
-    public class TestBox
+    public class TestCylinder
     {
-        private const string TEST_XML = "<box size=\"1 1 1\" />\n";
+        private const string TEST_XML = "<cylinder radius=\"1\" length=\"0.5\"/>";
 
         [Test]
         public void Deserialize_Success()
         {
-            var serializer = new XmlSerializer(typeof(Preliy.Flange.Editor.XmlModel.Box));
+            var serializer = new XmlSerializer(typeof(Preliy.Flange.Editor.XmlModel.Cylinder));
             using var reader = new StringReader(TEST_XML);
-            var box = (Preliy.Flange.Editor.XmlModel.Box)serializer.Deserialize(reader);
+            var cylinder = (Preliy.Flange.Editor.XmlModel.Cylinder)serializer.Deserialize(reader);
             
-            Assert.IsNotNull(box);
-            Assert.AreEqual("1 1 1", box.Size);
+            Assert.IsNotNull(cylinder);
+            Assert.AreEqual(1, cylinder.Radius);
+            Assert.AreEqual(0.5, cylinder.Length);
         }
     }
 }

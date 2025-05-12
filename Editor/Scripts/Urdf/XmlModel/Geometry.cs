@@ -9,7 +9,10 @@ namespace Preliy.Flange.Editor.XmlModel
     [XmlRoot(ElementName="geometry")]
     public class Geometry 
     { 
-        [XmlElement(ElementName="mesh")] 
-        public Mesh Mesh { get; set; } 
+        [XmlElement("mesh", typeof(Mesh), Form = System.Xml.Schema.XmlSchemaForm.Unqualified)] 
+        [XmlElement("box", typeof(Box), Form = System.Xml.Schema.XmlSchemaForm.Unqualified)] 
+        [XmlElement("cylinder", typeof(Cylinder), Form = System.Xml.Schema.XmlSchemaForm.Unqualified)] 
+        [XmlElement("sphere", typeof(Sphere), Form = System.Xml.Schema.XmlSchemaForm.Unqualified)] 
+        public object Object { get; set; } 
     }
 }

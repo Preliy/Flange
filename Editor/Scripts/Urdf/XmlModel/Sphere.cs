@@ -6,13 +6,10 @@ using System.Xml.Serialization;
 
 namespace Preliy.Flange.Editor.XmlModel
 {
-    [XmlRoot(ElementName="cylinder")]
-    public class Cylinder
+    [XmlRoot(ElementName="sphere")]
+    public class Sphere
     {
         [XmlAttribute(AttributeName="radius")] 
-        public double Radius; 
-        
-        [XmlAttribute(AttributeName="length")] 
-        public double Length; 
+        public double Radius;
     }
 }
