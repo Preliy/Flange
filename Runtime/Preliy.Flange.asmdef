@@ -2,13 +2,7 @@
     "name": "Preliy.Flange",
     "rootNamespace": "Preliy.Flange",
     "references": [],
-    "includePlatforms": [
-        "Editor",
-        "iOS",
-        "WebGL",
-        "WindowsStandalone32",
-        "WindowsStandalone64"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": true,
     "overrideReferences": false,
