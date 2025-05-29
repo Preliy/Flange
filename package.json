@@ -1,7 +1,7 @@
 {
   "name": "com.preliy.flange",
   "displayName": "Flange",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "unity": "2022.3",
   "unityRelease": "5f1",
   "description": "Virtual robot controller",

@@ -1,3 +1,10 @@
+## [1.0.10](https://github.com/Preliy/Flange/compare/v1.0.9...v1.0.10) (2025-05-29)
+
+
+### Bug Fixes
+
+* include all platforms ([7999de8](https://github.com/Preliy/Flange/commit/7999de8aa5d9a4708a8a250f18b1465b407550ee))
+
 ## [1.0.9](https://github.com/Preliy/Flange/compare/v1.0.8...v1.0.9) (2025-04-08)
 
 
